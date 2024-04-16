@@ -58,9 +58,10 @@ class TestRateLimiter(unittest.TestCase):
         startTime =  int(time.time())
 
         requests = ["1.2.3.4", '1.3.4.6', '1.2.4.3']
-
+        interval = 60
+        
         stats = {}
-        while int(time.time()) - startTime < 60:
+        while int(time.time()) - startTime < interval:
             time.sleep(0.1)
             req = random.choice(requests)
             if req not in stats:
